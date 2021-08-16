@@ -7,7 +7,7 @@ const service = {
         document.getElementById("form").addEventListener("submit", e => {
             e.preventDefault();
             let inputValue = document.getElementById("SearchField").value;
-            // console.log("inputValue is de value van de invuldveld", inputValue);
+             console.log("inputValue is de value van de invuldveld", inputValue);
             this.dataArtikel(inputValue);
         });
     },
@@ -83,14 +83,24 @@ function likes() {
                             <div class="article_content_wrapper">
                             <div>
                             <h1>${Artikels.title}</h1><!-- titel van het boek-->
-                            <h3>${Artikels.content}</h3><!-- content van het artikel-->
+                            <h1>${Artikels.imageURL}</h1><!-- titel van het boek-->
+                            <a>${Artikels.content}</a><!-- content van het artikel-->
                             </div>
                         
                             </div>
                             </article>`;
                             document.getElementById('content').insertAdjacentHTML("beforeend", html);
                     }
-                
+                .catch((error) => {
+            this.handlerError(error);
+            console.log('Error:', error);
+        });
             }
-              
+            sortLikes(Artikels.likes) {
+                const sortedlikes = artikels.likes.sort((a,b) =>  {
+                    return a.likes - b.likes;
+                });
+
+            
+                          
 service.initFields();
